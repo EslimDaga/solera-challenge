@@ -4,14 +4,9 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 import CategoryFilter from "@/components/CategoryFilter";
 import Header from "@/components/Header";
+import { Service } from "@/types/service";
 import ServiceForm from "@/components/ServiceForm";
 import ServiceList from "@/components/ServiceList";
-
-interface Service {
-  title: string;
-  description: string;
-  category: string;
-}
 
 const Home: React.FC = () => {
   const [services, setServices] = useState<Service[]>([

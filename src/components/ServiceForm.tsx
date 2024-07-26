@@ -1,10 +1,6 @@
 import { ChangeEvent, FormEvent } from "react";
 
-interface Service {
-  title: string;
-  description: string;
-  category: string;
-}
+import { Service } from "@/types/service";
 
 const ServiceForm: React.FC<{
   newService: Service;
