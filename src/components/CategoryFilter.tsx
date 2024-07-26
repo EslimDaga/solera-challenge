@@ -1,3 +1,5 @@
+const categories = ["Todos", "Autos", "Salud", "Hogar"];
+
 const CategoryFilter: React.FC<{
   filterCategory: string;
   setFilterCategory: (category: string) => void;
@@ -10,46 +12,19 @@ const CategoryFilter: React.FC<{
       Filtrar por Categoría
     </label>
     <div className="flex space-x-4">
-      <button
-        className={`px-4 py-2 rounded-lg ${
-          filterCategory === "Todos"
-            ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-700"
-        }`}
-        onClick={() => setFilterCategory("Todos")}
-      >
-        Todos
-      </button>
-      <button
-        className={`px-4 py-2 rounded-lg ${
-          filterCategory === "Autos"
-            ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-700"
-        }`}
-        onClick={() => setFilterCategory("Autos")}
-      >
-        Autos
-      </button>
-      <button
-        className={`px-4 py-2 rounded-lg ${
-          filterCategory === "Salud"
-            ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-700"
-        }`}
-        onClick={() => setFilterCategory("Salud")}
-      >
-        Salud
-      </button>
-      <button
-        className={`px-4 py-2 rounded-lg ${
-          filterCategory === "Hogar"
-            ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-700"
-        }`}
-        onClick={() => setFilterCategory("Hogar")}
-      >
-        Hogar
-      </button>
+      {categories.map((category) => (
+        <button
+          key={category}
+          className={`px-4 py-2 rounded-lg ${
+            filterCategory === category
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+          onClick={() => setFilterCategory(category)}
+        >
+          {category}
+        </button>
+      ))}
     </div>
   </div>
 );
