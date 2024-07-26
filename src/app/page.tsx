@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import { Service } from "@/types/service";
 import ServiceForm from "@/components/ServiceForm";
 import ServiceList from "@/components/ServiceList";
+import { toast } from "sonner";
 
 const Home: React.FC = () => {
   const [services, setServices] = useState<Service[]>([
@@ -68,8 +69,10 @@ const Home: React.FC = () => {
       setServices(updatedServices);
       setIsEditing(false);
       setEditingIndex(null);
+      toast.success("El servicio ha sido actualizado");
     } else {
       setServices((prevServices) => [...prevServices, newService]);
+      toast.success("El servicio ha sido creado");
     }
     setNewService({ title: "", description: "", category: "Autos" });
   };
@@ -87,6 +90,7 @@ const Home: React.FC = () => {
       setEditingIndex(null);
       setNewService({ title: "", description: "", category: "Autos" });
     }
+    toast.success("El servicio ha sido eliminado");
   };
 
   const filteredServices =
